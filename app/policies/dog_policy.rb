@@ -19,11 +19,13 @@ class DogPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.is_a? Owner
+    # @user.is_a? Owner
+    true
   end
 
   def destroy?
-    @user.is_a? Owner
+    # @user.is_a? Owner
+    true
   end
 
 end

@@ -1,9 +1,153 @@
-<%= @owner.fullname %>
+<div class="card-category" style="background-image: linear-gradient(rgba(18, 97, 243, 0.3), rgba(32, 34, 62, 0.52)), url(http://i.imgur.com/SHfD9qZ.jpg)">
+  <img class="avatar-large" alt="avatar-large" src=<%= @owner.avatar_url %> />
+  <h1><%= "Howdy, I'm #{@owner.first_name} #{@owner.last_name}!" %></h1>
+  <h4> <%= @owner.location  %> </h4>
+  <h4>Fun Fact: <%= @owner.description %></h4>
+</div>
 
-<ul>
-  <% @owner.dogs.each do |dog| %>
-    <li><%= link_to dog.name, dog_path(dog) %></li>
+<% if current_user %>
+    <div class="container-dogs-reviews">
+
+      <div class="item">
+         <div>
+
+  <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><%= "#{@owner.first_name} #{@owner.last_name}'s POPPIES" %></a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">
+            <% @owner.dogs.each do |dog|  %>
+              <div class="card-product">
+                <img src=<%="#{dog.images_url[0]}"%>>
+                <div class="card-product-infos">
+                  <h2> <%= dog.name %> </h2>
+                  <p><strong><%= dog.breed %>: </strong><%= dog.description %></p>
+                </div>
+              </div>
+            <% end  %>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+<!--      completed_playdates = current_user.playdates.select {|playdate| playdate.completed == true}
+          future_playdates = current_user.playdates.select {|playdate| playdate.completed == false}
+ -->
+      <div class="item">
+        <ul class="list-inline tabs-underlined">
+          <li>
+            <a href="#" class="tab-underlined active">What people say about...</a>
+          </li>
+        </ul>
+        <div class="notification">
+          <img src='https://avatars3.githubusercontent.com/u/41468166?v=4' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>Francis Abadmothafucka</small></p>
+            <p>Da dogs were <strong>top notch!</strong> Highly recommend!</p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/u2dm7fdnmlkdzn8vgjxk.jpg' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>David Younibrow</small></p>
+            <p>I was so depressed with my accounting job. But now I see the <strong>light</strong> thanks to this puppy.</p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/wzq20vmxjrjfpjlsvlnl.jpg' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>Yuki Morimoneymoproblems</small></p>
+            <p>Playing with dogs made me a better drinker of <strong>ALCOHOL!</strong></p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://avatars3.githubusercontent.com/u/45553221?v=4' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>Kumi Takenonofyobullshit</small></p>
+            <p>My pawpal <strong>cured</strong> me of my cold!</p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://avatars3.githubusercontent.com/u/43575552?v=4' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>Jack Youdawuersch</small></p>
+            <p>Ello mates - back in aussie land we had spiders as pets - now I have <strong>man's best friend!</strong></p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>David Younibrow</small></p>
+            <p>I was so depressed with my accounting job. But now I see the <strong>light</strong> thanks to this puppy.</p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>Bob Simmons</small></p>
+            <p>Da dogs were <strong>top notch!</strong> Highly recommend!</p>
+          </div>
+        </div>
+
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>David Younibrow</small></p>
+            <p>I was so depressed with my accounting job. But now I see the <strong>light</strong> thanks to this puppy.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   <% end %>
-</ul>
 
-<% link_to "index", dogs_path %>
+<% if current_owner %>
+    <div class="container-dogs-reviews">
+
+      <div class="item">
+        <h3>Dogs</h3>
+
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-product-infos">
+            <h2>Product name</h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="item">
+        <h3>Reviews</h3>
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>Bob Simmons</small></p>
+            <p>Da dogs were <strong>top notch!</strong> Highly recommend!</p>
+          </div>
+
+
+        </div>
+
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+          <div class="notification-content">
+            <p><small>David Younibrow</small></p>
+            <p>I was so depressed with my accounting job. But now I see the <strong>light</strong> thanks to this puppy.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  <% end %>

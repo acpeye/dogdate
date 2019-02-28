@@ -4,13 +4,16 @@ Dog Create Page
 <%= f.input :name %>
 <%= f.input :description %>
 <%= f.input :breed %>
-<%= f.input :images_url  %>
+<%= f.input :image  %>
+<%= f.input :hourly_price %>
 <%= f.submit "Preview", formaction: owner_preview_dog_path %>
-<% unless @dog.images_url.empty? %>
+<% unless @dog.image.nil? %>
   <div id="rounded-border">
-    <%= image_tag @dog.images_url[0], width: 300 %>
+    <%= image_tag @dog.image, width: 300 %>
   <div class="card-content">
 <% end %>
-<%= f.input :available_dates %>
+<h4>Available Time</h4>
+<%= f.input :date %>
+<%= f.input :time %>
 <%= f.submit %>
 <% end %>

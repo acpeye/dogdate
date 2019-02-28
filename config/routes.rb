@@ -1,24 +1,7 @@
 Rails.application.routes.draw do
   devise_for :owners
   devise_for :users
-
-
-  authenticated :user do
-  root to: "dogs#index"
-  end
-
-  authenticated :owner do
-  root to: "dogs#index"
-  end
-
-  unauthenticated :user do
-  root "pages#home"
-  end
-
-  unauthenticated :owner do
-  root "pages#home"
-  end
-
+  root to: 'pages#home'
   resources :dogs, only: [:index, :show, :edit, :update, :delete] do
     resources :playdates, only: [:new, :create]
   end

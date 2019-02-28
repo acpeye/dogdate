@@ -4,4 +4,10 @@ class Dog < ApplicationRecord
 
   validates :name, presence: true
   validates :breed, presence: true
+
+  def avg_rating
+    return ratings.sum / ratings.size unless ratings.empty?
+
+    return 0
+  end
 end
